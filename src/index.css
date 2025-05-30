@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@theme{
+  --color-primary-100: #FEF4EE;
+  --color-primary-200: #FEEBDD;
+  --color-primary-300: #FDD3C1;
+  --color-primary-400: #F9A98D;
+  --color-primary-500: #F58561;
+  --color-primary-600: #E16443;
+  --color-primary-700: #C24A2D;
+  --color-primary-800: #9E351D;
+  --color-primary-900: #7A2412;
+
+  --color-secondary-100: #E6F9F1;
+  --color-secondary-200: #CCF3E3;
+  --color-secondary-300: #99E7C7;
+  --color-secondary-400: #66DBAB;
+  --color-secondary-500: #06C07C;
+  --color-secondary-600: #059A63;
+  --color-secondary-700: #04734A;
+  --color-secondary-800: #024D32;
+  --color-secondary-900: #012619;
+  
+  --color-muted-100: #F8F8F8;
+  --color-muted-200: #F0F0F0;
+  --color-muted-300: #E0E0E0;
+  --color-muted-400: #B8B8B9;
+  --color-muted-500: #595A5B;
+  --color-muted-600: #474849;
+  --color-muted-700: #363637;
+  --color-muted-800: #242425;
+  --color-muted-900: #121213;
+
+  --color-obsidian-100: #E9EEEE;
+  --color-obsidian-200: #D3DDDD;
+  --color-obsidian-300: #9EBABB;
+  --color-obsidian-400: #689798;
+  --color-obsidian-500: #1E4647;
+  --color-obsidian-600: #183839;
+  --color-obsidian-700: #122A2B;
+  --color-obsidian-800: #0C1C1D;
+  --color-obsidian-900: #060E0E;
+
+  --color-background-100: #FEF4EE;
+  --color-background-200: #FEEBDD;
+  --color-background-300: #FDD3C1;
+  --color-background-400: #F9A98D;
+  --color-background-500: #FEEBDD;
+  --color-background-600: #E16443;
+  --color-background-700: #C24A2D;
+  --color-background-800: #9E351D;
+  --color-background-900: #7A2412;
+}
