@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Envelope, Lock } from "phosphor-react";
 import logo from "../assets/logo-conectar.svg"
+import { Link } from "react-router-dom"
 
 const formSchema = z.object({
   email: z.string().email({ message: "O e-mail informado é inválido" }),
@@ -62,6 +63,9 @@ const Login = () => {
         >
           Login
         </button>
+        <p className="text-sm text-gray-500 text-center">
+          Não tem uma conta? <Link to="/register" className="text-primary-500">Registre-se</Link>
+        </p>
       </form>
     </div>
   )
