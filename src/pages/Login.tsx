@@ -36,7 +36,7 @@ const Login = () => {
             <input
               type="email"
               {...register("email")}
-              className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-500"
+              className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
               placeholder="Email address"
             />
           </div>
@@ -50,7 +50,7 @@ const Login = () => {
             <input
               type="password"
               {...register("password")}
-              className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-500"
+              className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
               placeholder="Password"
             />
           </div>
@@ -58,7 +58,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-secondary-500 text-white mt-4 py-2 px-4 rounded-md hover:bg-secondary-600 focus:outline-none cursor-pointer"
+          className="w-full bg-primary-500 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary-600 focus:outline-none cursor-pointer"
         >
           Login
         </button>
