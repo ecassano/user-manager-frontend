@@ -4,7 +4,7 @@ import { Button } from './ui/button'
 import { SignOut } from 'phosphor-react'
 import { type RootState } from '../store'
 import { useDispatch } from "react-redux";
-import logout from '../api/logout'
+import logout from '../api/auth/logout'
 import { logout as logoutAction } from '../store/authSlice'
 export function Logout() {
   const navigate = useNavigate()

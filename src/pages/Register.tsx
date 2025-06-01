@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Envelope, Lock, User } from "phosphor-react";
 import logo from "../assets/logo-conectar.svg"
 import { Link, useNavigate } from "react-router-dom"
-import createUser from "../api/register";
+import createUser from "../api/auth/register";
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "O nome deve conter pelo menos 3 caracteres" }),

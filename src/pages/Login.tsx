@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Envelope, Lock } from "phosphor-react";
 import logo from "../assets/logo-conectar.svg"
 import { Link, useNavigate } from "react-router-dom"
-import login from "../api/login";
-import me from "../api/me";
+import login from "../api/auth/login";
+import me from "../api/auth/me";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../store/authSlice";
