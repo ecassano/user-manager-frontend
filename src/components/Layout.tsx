@@ -1,14 +1,20 @@
 import { Outlet } from "react-router-dom"
 import logo from "../assets/logo-conectar.svg"
+import { Logout } from "./Logout"
 
 export const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
-      <header className="flex items-center justify-center bg-muted-500 shadow-2xs text-center p-2 text-sm text-gray-500">
-        <img src={logo} alt="logo" className="w-36 h-18" />
+      <header className="bg-muted-500 shadow-2xs">
+        <div className="max-w-6xl mx-auto w-full flex items-center justify-between p-4">
+          <img src={logo} alt="logo" className="w-28 h-14" />
+          <Logout />
+        </div>
       </header>
       <main className="flex-1">
-        <Outlet />
+        <div className="max-w-6xl mx-auto w-full">
+          <Outlet />
+        </div>
       </main>
       <footer className="bg-gray-200 text-center p-2 text-sm text-gray-500">
         © 2025 User Manager

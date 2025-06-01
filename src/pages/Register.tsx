@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Envelope, Lock, User } from "phosphor-react";
 import logo from "../assets/logo-conectar.svg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import createUser from "../api/register";
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "O nome deve conter pelo menos 3 caracteres" }),
@@ -16,6 +17,8 @@ const formSchema = z.object({
 });
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,8 +29,16 @@ const Register = () => {
     },
   })
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data)
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const response = await createUser({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    })
+
+    if (response.status === 201) {
+      navigate("/");
+    }
   }
 
   return (

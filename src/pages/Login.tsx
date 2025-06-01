@@ -3,7 +3,12 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Envelope, Lock } from "phosphor-react";
 import logo from "../assets/logo-conectar.svg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import login from "../api/login";
+import me from "../api/me";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../store/authSlice";
 
 const formSchema = z.object({
   email: z.string().email({ message: "O e-mail informado é inválido" }),
@@ -12,6 +17,9 @@ const formSchema = z.object({
 
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -21,8 +29,54 @@ const Login = () => {
     },
   })
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data)
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await me();
+
+        if (!res.authenticated) throw new Error()
+
+        const user = res.user
+        console.log('Usuário autenticado:', user)
+      } catch (err) {
+        console.warn('Token expirado ou inválido. Redirecionando...', err)
+        navigate('/')
+      }
+    }
+
+    checkAuth()
+
+    const interval = setInterval(checkAuth, 5 * 60 * 1000)
+
+    return () => clearInterval(interval)
+  }, [navigate])
+
+
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    try {
+      await login(data.email, data.password);
+
+      const { authenticated, user } = await me();
+
+      console.log(authenticated, user);
+
+      if (!authenticated) {
+        setErrorMessage("Usuário não autenticado");
+        return;
+      }
+
+      dispatch(setCredentials({ authenticated, user }));
+
+      if (user?.role === "admin") {
+        navigate("/admin/users");
+      } else {
+        navigate("/profile");
+      }
+
+
+    } catch {
+      setErrorMessage("E-mail ou senha inválidos");
+    }
   }
 
   return (
@@ -57,6 +111,7 @@ const Login = () => {
           </div>
           {errors.password ? <p className="text-red-500 text-sm h-1.5 mt-1">{errors?.password?.message}</p> : <p className="h-1.5 mt-1"></p>}
         </div>
+        {errorMessage && <p className="text-red-500 text-sm h-1.5 mt-1">{errorMessage}</p>}
         <button
           type="submit"
           className="w-full bg-primary-500 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary-600 focus:outline-none cursor-pointer"

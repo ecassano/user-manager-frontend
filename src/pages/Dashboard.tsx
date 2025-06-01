@@ -22,19 +22,21 @@ const users = [
     name: "John Doe",
     email: "john@example.com",
     role: "Admin",
-    status: "Ativo"
+    status: "Ativo",
+    createdAt: "2024-03-15T10:30:00Z"
   },
   {
     id: 2,
     name: "Jane Smith",
     email: "jane@example.com",
     role: "Usuário",
-    status: "Inativo"
+    status: "Inativo",
+    createdAt: "2024-03-14T15:45:00Z"
   },
   // Add more mock users as needed
 ]
 
-type SortField = 'name' | 'email' | 'role' | 'status'
+type SortField = 'name' | 'email' | 'role' | 'status' | 'createdAt'
 type SortDirection = 'asc' | 'desc'
 
 const Dashboard = () => {
@@ -66,6 +68,14 @@ const Dashboard = () => {
   )
 
   const sortedAndFilteredUsers = [...filteredUsers].sort((a, b) => {
+    if (sortField === 'createdAt') {
+      const aDate = new Date(a[sortField])
+      const bDate = new Date(b[sortField])
+      return sortDirection === 'asc'
+        ? aDate.getTime() - bDate.getTime()
+        : bDate.getTime() - aDate.getTime()
+    }
+
     const aValue = a[sortField].toLowerCase()
     const bValue = b[sortField].toLowerCase()
 
@@ -77,7 +87,7 @@ const Dashboard = () => {
   })
 
   return (
-    <div className="p-8">
+    <div className="max-w-7xl mx-auto p-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-muted-600">Usuários</h1>
         <div className="relative">
@@ -101,6 +111,7 @@ const Dashboard = () => {
                 { label: 'E-mail', field: 'email' },
                 { label: 'Função', field: 'role' },
                 { label: 'Status', field: 'status' },
+                { label: 'Data de criação', field: 'createdAt' },
               ].map((column) => (
                 <TableHead
                   key={column.field}
@@ -144,6 +155,15 @@ const Dashboard = () => {
                   >
                     {user.status}
                   </span>
+                </TableCell>
+                <TableCell>
+                  {new Date(user.createdAt).toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                  })}
                 </TableCell>
                 <TableCell>
                   <DropdownMenu>
