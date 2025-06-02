@@ -17,3 +17,73 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 
 ```bash
 npm install -g pnpm
+
+---
+
+## Instalação
+
+1. Clone o repositório:
+
+
+2. Instale as dependências:
+
+
+---
+
+## Executando o Projeto
+
+Inicie o servidor de desenvolvimento:
+
+
+O aplicativo estará disponível em `http://localhost:5173` (ou na porta especificada pelo Vite).
+
+---
+
+## Scripts Disponíveis
+
+- `pnpm dev` — Inicia o servidor de desenvolvimento com Vite.
+- `pnpm build` — Gera a versão de produção na pasta `dist/`.
+- `pnpm preview` — Serve a build de produção localmente para testes.
+
+---
+
+## Tecnologias Utilizadas
+
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [pnpm](https://pnpm.io/)
+
+---
+
+## Estrutura do Projeto
+
+user-manager-frontend/
+├── public/
+├── src/
+│ ├── components/
+│ ├── pages/
+│ ├── App.tsx
+│ └── main.tsx
+├── package.json
+├── pnpm-lock.yaml
+├── tailwind.config.ts
+└── vite.config.ts
+
+---
+
+## Contribuindo
+
+Contribuições são bem-vindas!  
+Sinta-se à vontade para abrir issues ou pull requests.
+
+---
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+Se precisar de ajuda ou quiser fazer melhorias, é só abrir uma issue ou me chamar!
