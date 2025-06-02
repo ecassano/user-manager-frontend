@@ -1,54 +1,83 @@
-# React + TypeScript + Vite
+User Manager Frontend
+Este é um projeto frontend desenvolvido com React, TypeScript, Vite e Tailwind CSS. Ele serve como uma interface para gerenciamento de usuários.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pré-requisitos
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 
-Currently, two official plugins are available:
+Node.js (versão 18 ou superior)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+pnpm (gerenciador de pacotes)
 
-## Expanding the ESLint configuration
+Nota: Este projeto utiliza o pnpm como gerenciador de pacotes. Se você ainda não o possui, instale-o globalmente com o comando:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+bash
+Copiar
+Editar
+npm install -g pnpm
+Instalação
+Clone o repositório:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+bash
+Copiar
+Editar
+git clone https://github.com/ecassano/user-manager-frontend.git
+cd user-manager-frontend
+Instale as dependências:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+bash
+Copiar
+Editar
+pnpm install
+Executando o Projeto
+Inicie o servidor de desenvolvimento:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+bash
+Copiar
+Editar
+pnpm dev
+O aplicativo estará disponível em http://localhost:5173 (ou na porta especificada pelo Vite).
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Scripts Disponíveis
+pnpm dev — Inicia o servidor de desenvolvimento com Vite.
+
+pnpm build — Gera a versão de produção na pasta dist/.
+
+pnpm preview — Serve a build de produção localmente para testes.
+
+Tecnologias Utilizadas
+React
+
+TypeScript
+
+Vite
+
+Tailwind CSS
+
+pnpm
+
+Estrutura do Projeto
+A estrutura principal do projeto é a seguinte:
+
+pgsql
+Copiar
+Editar
+user-manager-frontend/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── App.tsx
+│   └── main.tsx
+├── package.json
+├── pnpm-lock.yaml
+├── tailwind.config.ts
+└── vite.config.ts
+Contribuindo
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
+
+Licença
+Este projeto está licenciado sob a MIT License.
+
+Este README fornece instruções claras para que qualquer pessoa possa rodar o projeto localmente. Certifique-se de substituir [LICENSE] pelo link correto para o arquivo de licença, caso exista.
+
+Se precisar de mais alguma coisa ou ajustes adicionais, estou à disposição para ajudar!
