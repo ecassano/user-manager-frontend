@@ -6,6 +6,7 @@ import { type RootState } from '../store'
 import { useDispatch } from "react-redux";
 import logout from '../api/auth/logout'
 import { logout as logoutAction } from '../store/authSlice'
+
 export function Logout() {
   const navigate = useNavigate()
   const { authenticated, user } = useSelector((state: RootState) => state.auth);
@@ -13,14 +14,11 @@ export function Logout() {
 
   const handleLogout = async () => {
     const response = await logout();
-    console.log(response);
     if (response.status === 201) {
       dispatch(logoutAction())
-      navigate('/login')
+      navigate('/')
     }
   }
-
-  console.log(user?.name);
 
   if (!authenticated) {
     return (

@@ -6,7 +6,7 @@ import logo from "../assets/logo-conectar.svg"
 import { Link, useNavigate } from "react-router-dom"
 import login from "../api/auth/login";
 import me from "../api/auth/me";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../store/authSlice";
 
@@ -28,29 +28,6 @@ const Login = () => {
       password: "",
     },
   })
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const res = await me();
-
-        if (!res.authenticated) throw new Error()
-
-        const user = res.user
-        console.log('Usuário autenticado:', user)
-      } catch (err) {
-        console.warn('Token expirado ou inválido. Redirecionando...', err)
-        navigate('/')
-      }
-    }
-
-    checkAuth()
-
-    const interval = setInterval(checkAuth, 5 * 60 * 1000)
-
-    return () => clearInterval(interval)
-  }, [navigate])
-
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {

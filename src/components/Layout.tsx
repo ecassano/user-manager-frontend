@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import logo from "../assets/logo-conectar.svg"
 import { Logout } from "./Logout"
-
+import { AuthVerifier } from "./AuthVerifier"
 export const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
@@ -13,6 +13,7 @@ export const Layout = () => {
       </header>
       <main className="flex-1">
         <div className="max-w-6xl mx-auto w-full">
+          <AuthVerifier />
           <Outlet />
         </div>
       </main>
