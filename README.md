@@ -27,6 +27,9 @@ npm install -g pnpm
 
 2. Instale as dependências:
 
+3. Crie o arquivo .env e preencha com o seguinte:
+
+VITE_API_URL=http://localhost:3333
 
 ---
 
