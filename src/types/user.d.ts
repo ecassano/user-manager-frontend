@@ -7,6 +7,7 @@ export interface User {
   email: string
   password: string
   role: Role
+  status: string
   createdAt: string
   updatedAt: string
 }
@@ -18,8 +19,10 @@ export interface CreateUser {
 }
 
 export interface UpdateProfile {
-  name: string
-  email: string
-  password: string
-  updatedAt: string
+  name?: string
+  email?: string
+  password?: string
+  role?: Role
+  status?: string
+  updatedAt?: string
 }

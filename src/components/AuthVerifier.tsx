@@ -21,8 +21,6 @@ export function AuthVerifier() {
       try {
         const response = await me()
 
-        console.log(response)
-
         if (response.authenticated) {
           dispatch(setUser(response.user))
           dispatch(setCredentials({ authenticated: true, user: response.user }))

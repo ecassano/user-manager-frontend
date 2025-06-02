@@ -31,11 +31,13 @@ const Login = () => {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
+
+      console.log(data)
       await login(data.email, data.password);
 
-      const { authenticated, user } = await me();
+      console.log('login')
 
-      console.log(authenticated, user);
+      const { authenticated, user } = await me();
 
       if (!authenticated) {
         setErrorMessage("Usuário não autenticado");
