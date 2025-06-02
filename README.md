@@ -34,6 +34,8 @@ npm install -g pnpm
 
 Inicie o servidor de desenvolvimento:
 
+```bash
+pnpm run dev
 
 O aplicativo estará disponível em `http://localhost:5173` (ou na porta especificada pelo Vite).
 
@@ -41,9 +43,7 @@ O aplicativo estará disponível em `http://localhost:5173` (ou na porta especif
 
 ## Scripts Disponíveis
 
-- `pnpm dev` — Inicia o servidor de desenvolvimento com Vite.
 - `pnpm build` — Gera a versão de produção na pasta `dist/`.
-- `pnpm preview` — Serve a build de produção localmente para testes.
 
 ---
 
